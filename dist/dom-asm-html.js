@@ -3,4 +3,6 @@
  * (c) 2025 Nnamdi Michael Okpala
  * @license MIT
  */
-//# sourceMappingURL=domasm.esm.js.map
+'use strict';
+
+//# sourceMappingURL=dom-asm-html.js.map
