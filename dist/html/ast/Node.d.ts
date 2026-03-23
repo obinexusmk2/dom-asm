@@ -1,4 +1,3 @@
-import { Node } from '../core/types';
 /**
  * Core HTML node property types
  */
@@ -145,6 +144,7 @@ export declare class HTMLVNode extends VNodeBase {
      * Gets the static node map for signature tracking
      * This map is used to track equivalence classes across all nodes
      */
+    private static _signatureMap;
     private static getStaticNodeMap;
     /**
      * Creates an HTMLVNode from an HTML string

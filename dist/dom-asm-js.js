@@ -1,5 +1,5 @@
 /*!
- * @obinexusmk2/dom-asm v0.1.0
+ * @obinexusltd/dom-asm v0.1.0
  * (c) 2025 Nnamdi Michael Okpala
  * @license MIT
  */

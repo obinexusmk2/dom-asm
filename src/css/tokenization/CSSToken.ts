@@ -1,4 +1,5 @@
 import { CSSTokenType, TokenType } from './CSSTokenType';
+export { TokenType } from './CSSTokenType';
 
 /**
  * Position information for tokens
@@ -40,7 +41,7 @@ export class CSSToken {
     this.position = position;
     this.metadata = {
       ...metadata,
-      stateSignature: metadata.stateSignature || null,
+      stateSignature: metadata.stateSignature || undefined,
       equivalenceClass: metadata.equivalenceClass || null,
       transitions: metadata.transitions || new Map()
     };

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"const d = require\\(''./dist/domasm.js''\\); console.log\\(''Exports:'', Object.keys\\(d\\).join\\('', ''\\)\\)\")",
+      "Bash(node dist/domasm-cli.js --help)",
+      "Bash(node dist/domasm-cli.js --version)",
+      "Bash(node -e \"const d = require\\(''./dist/domasm.js''\\); console.log\\(''DomASM class:'', typeof d.DomASM\\); console.log\\(''StateMachineMinimizer:'', typeof d.StateMachineMinimizer\\); console.log\\(''Total exports:'', Object.keys\\(d\\).length\\)\")"
+    ]
+  }
+}

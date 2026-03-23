@@ -193,7 +193,7 @@ export class CSSParser {
    * 
    * @returns The parsed rule node
    */
-  private parseRule(): CSSNode {
+  private parseRule(): CSSNode | null {
     const rule = new CSSNode('rule');
     const selectors: CSSNode[] = [];
     let hasBlock = false;

@@ -1,4 +1,4 @@
-import { Node, AST } from '../core/types';
+import { Node, AST } from '../../core/types';
 
 /**
  * Interface for a class of equivalent nodes

@@ -1,4 +1,4 @@
-import { HTMLToken } from './HTMLToken';
+import { HTMLToken } from '../tokenization/HTMLToken';
 /**
  * Interface for HTML node structure
  */

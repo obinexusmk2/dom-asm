@@ -1,22 +1,11 @@
-// Main API
 export { DomASM, parse, render, process, optimize, diff, patch, updateDOM } from './DomASM';
-
-// Core types
 export * from './core';
-
-// State machine
 export { StateMachineMinimizer, createState, addTransition, createStateMachine, addState, transition, reset, isAccepting } from './state-machine';
-
-// Diff/Patch
 export { DiffPatchEngine } from './diff-patch/DiffPatchEngine';
-
-// HTML module
 export { HTMLParser, HTMLParserError } from './html/parsing/HTMLParser';
 export { HTMLAstOptimizer } from './html/ast/HTMLAstOptimizer';
 export { HTMLVNode, VNodeBase } from './html/ast/Node';
 export { HTMLTokenizer } from './html/tokenization/HTMLTokenizer';
-
-// CSS module
 export { CSSParser } from './css/parsing/CSSParser';
 export { CSSAST } from './css/ast/CSSAST';
 export { CSSAstOptimizer } from './css/ast/CSSAstOptimizer';

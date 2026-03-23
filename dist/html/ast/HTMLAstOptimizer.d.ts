@@ -1,4 +1,4 @@
-import { AST } from '../core/types';
+import { AST } from '../../core/types';
 /**
  * Interface for optimization metrics
  */

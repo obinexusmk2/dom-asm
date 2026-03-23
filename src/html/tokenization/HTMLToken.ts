@@ -173,7 +173,7 @@ export const HTMLTokenType = {
   /**
    * Start tag token implementation
    */
-  export class StartTagTokenImpl extends HTMLBaseToken implements StartTagToken {
+  export class StartTagTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly attributes: Map<string, string>;
     readonly selfClosing: boolean;
@@ -216,7 +216,7 @@ export const HTMLTokenType = {
   /**
    * End tag token implementation
    */
-  export class EndTagTokenImpl extends HTMLBaseToken implements EndTagToken {
+  export class EndTagTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly namespace?: string;
   
@@ -247,7 +247,7 @@ export const HTMLTokenType = {
   /**
    * Text token implementation
    */
-  export class TextTokenImpl extends HTMLBaseToken implements TextToken {
+  export class TextTokenImpl extends HTMLBaseToken {
     readonly content: string;
     readonly isWhitespace: boolean;
   
@@ -278,7 +278,7 @@ export const HTMLTokenType = {
   /**
    * Comment token implementation
    */
-  export class CommentTokenImpl extends HTMLBaseToken implements CommentToken {
+  export class CommentTokenImpl extends HTMLBaseToken {
     readonly data: string;
     readonly isConditional: boolean;
   
@@ -309,7 +309,7 @@ export const HTMLTokenType = {
   /**
    * Conditional comment token implementation
    */
-  export class ConditionalCommentTokenImpl extends HTMLBaseToken implements ConditionalCommentToken {
+  export class ConditionalCommentTokenImpl extends HTMLBaseToken {
     readonly condition: string;
     readonly content: string;
   
@@ -340,7 +340,7 @@ export const HTMLTokenType = {
   /**
    * DOCTYPE token implementation
    */
-  export class DoctypeTokenImpl extends HTMLBaseToken implements DoctypeToken {
+  export class DoctypeTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly publicId?: string;
     readonly systemId?: string;
@@ -377,7 +377,7 @@ export const HTMLTokenType = {
   /**
    * CDATA token implementation
    */
-  export class CDATATokenImpl extends HTMLBaseToken implements CDATAToken {
+  export class CDATATokenImpl extends HTMLBaseToken {
     readonly content: string;
   
     constructor(
@@ -402,7 +402,7 @@ export const HTMLTokenType = {
   /**
    * EOF token implementation
    */
-  export class EOFTokenImpl extends HTMLBaseToken implements EOFToken {
+  export class EOFTokenImpl extends HTMLBaseToken {
     constructor(start: number, end: number, line: number, column: number) {
       super(HTMLTokenType.EOF, start, end, line, column);
       Object.freeze(this);
@@ -426,7 +426,7 @@ export const HTMLTokenType = {
       column: number, 
       namespace?: string
     ): StartTagToken {
-      return new StartTagTokenImpl(name, attributes, selfClosing, start, end, line, column, namespace);
+      return new StartTagTokenImpl(name, attributes, selfClosing, start, end, line, column, namespace) as unknown as StartTagToken;
     }
     
     /**
@@ -440,7 +440,7 @@ export const HTMLTokenType = {
       column: number, 
       namespace?: string
     ): EndTagToken {
-      return new EndTagTokenImpl(name, start, end, line, column, namespace);
+      return new EndTagTokenImpl(name, start, end, line, column, namespace) as unknown as EndTagToken;
     }
     
     /**
@@ -454,7 +454,7 @@ export const HTMLTokenType = {
       line: number, 
       column: number
     ): TextToken {
-      return new TextTokenImpl(content, isWhitespace, start, end, line, column);
+      return new TextTokenImpl(content, isWhitespace, start, end, line, column) as unknown as TextToken;
     }
     
     /**
@@ -468,7 +468,7 @@ export const HTMLTokenType = {
       column: number, 
       isConditional: boolean
     ): CommentToken {
-      return new CommentTokenImpl(data, start, end, line, column, isConditional);
+      return new CommentTokenImpl(data, start, end, line, column, isConditional) as unknown as CommentToken;
     }
     
     /**
@@ -482,7 +482,7 @@ export const HTMLTokenType = {
       line: number, 
       column: number
     ): ConditionalCommentToken {
-      return new ConditionalCommentTokenImpl(condition, content, start, end, line, column);
+      return new ConditionalCommentTokenImpl(condition, content, start, end, line, column) as unknown as ConditionalCommentToken;
     }
     
     /**
@@ -497,7 +497,7 @@ export const HTMLTokenType = {
       publicId?: string, 
       systemId?: string
     ): DoctypeToken {
-      return new DoctypeTokenImpl(name, start, end, line, column, publicId, systemId);
+      return new DoctypeTokenImpl(name, start, end, line, column, publicId, systemId) as unknown as DoctypeToken;
     }
     
     /**
@@ -510,7 +510,7 @@ export const HTMLTokenType = {
       line: number, 
       column: number
     ): CDATAToken {
-      return new CDATATokenImpl(content, start, end, line, column);
+      return new CDATATokenImpl(content, start, end, line, column) as unknown as CDATAToken;
     }
     
     /**
@@ -522,6 +522,6 @@ export const HTMLTokenType = {
       line: number, 
       column: number
     ): EOFToken {
-      return new EOFTokenImpl(start, end, line, column);
+      return new EOFTokenImpl(start, end, line, column) as unknown as EOFToken;
     }
   }

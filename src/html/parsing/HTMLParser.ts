@@ -1,6 +1,5 @@
-import { HTMLToken, HTMLTokenType } from './HTMLToken';
-import { HTMLTokenizer } from './HTMLTokenizer';
-import { StateMachineMinimizer } from '../core/StateMachineMinimizer';
+import { HTMLToken, HTMLTokenType } from '../tokenization/HTMLToken';
+import { HTMLTokenizer } from '../tokenization/HTMLTokenizer';
 
 /**
  * Interface for HTML node structure
@@ -428,13 +427,15 @@ export class HTMLParser {
       case HTMLTokenType.EOF:
         break;
         
-      default:
+      default: {
+        const unknownToken = token as any;
         throw new HTMLParserError({
-          message: `Unknown token type: ${token.type}`,
-          token,
+          message: `Unknown token type: ${unknownToken.type}`,
+          token: unknownToken,
           state: optimizedState,
-          position: token.start
+          position: unknownToken.start
         });
+      }
     }
 
     return currentNode;
@@ -545,7 +546,7 @@ export class HTMLParser {
   private handleParserError(error: HTMLParserError, currentNode: HTMLNode): void {
     console.error(`Parser error in state ${error.state.type}:`, error.message);
     // Add error info to the current node's metadata
-    currentNode.metadata.error = {
+    (currentNode.metadata as any).error = {
       message: error.message,
       position: error.position,
       state: error.state.type

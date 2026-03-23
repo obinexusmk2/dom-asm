@@ -75,7 +75,7 @@ export class CSSAstOptimizer {
       removeEmptyNodes: true,
       removeComments: true,
       optimizeAttributes: true,
-      level: 'standard',
+      level: 'standard' as const,
       ...options
     };
     

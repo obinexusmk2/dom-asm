@@ -1,5 +1,3 @@
-import { Node } from '../core/types';
-
 /**
  * Core HTML node property types
  */
@@ -315,11 +313,13 @@ export class HTMLVNode extends VNodeBase {
    * Gets the static node map for signature tracking
    * This map is used to track equivalence classes across all nodes
    */
+  private static _signatureMap: Map<string, number> | null = null;
+
   private static getStaticNodeMap(): Map<string, number> {
-    if (!globalThis.__htmlVNodeSignatureMap) {
-      globalThis.__htmlVNodeSignatureMap = new Map<string, number>();
+    if (!HTMLVNode._signatureMap) {
+      HTMLVNode._signatureMap = new Map<string, number>();
     }
-    return globalThis.__htmlVNodeSignatureMap;
+    return HTMLVNode._signatureMap;
   }
   
   /**

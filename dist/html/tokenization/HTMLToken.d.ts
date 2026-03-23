@@ -127,7 +127,7 @@ export declare class HTMLBaseToken {
 /**
  * Start tag token implementation
  */
-export declare class StartTagTokenImpl extends HTMLBaseToken implements StartTagToken {
+export declare class StartTagTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly attributes: Map<string, string>;
     readonly selfClosing: boolean;
@@ -137,7 +137,7 @@ export declare class StartTagTokenImpl extends HTMLBaseToken implements StartTag
 /**
  * End tag token implementation
  */
-export declare class EndTagTokenImpl extends HTMLBaseToken implements EndTagToken {
+export declare class EndTagTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly namespace?: string;
     constructor(name: string, start: number, end: number, line: number, column: number, namespace?: string);
@@ -145,7 +145,7 @@ export declare class EndTagTokenImpl extends HTMLBaseToken implements EndTagToke
 /**
  * Text token implementation
  */
-export declare class TextTokenImpl extends HTMLBaseToken implements TextToken {
+export declare class TextTokenImpl extends HTMLBaseToken {
     readonly content: string;
     readonly isWhitespace: boolean;
     constructor(content: string, isWhitespace: boolean, start: number, end: number, line: number, column: number);
@@ -153,7 +153,7 @@ export declare class TextTokenImpl extends HTMLBaseToken implements TextToken {
 /**
  * Comment token implementation
  */
-export declare class CommentTokenImpl extends HTMLBaseToken implements CommentToken {
+export declare class CommentTokenImpl extends HTMLBaseToken {
     readonly data: string;
     readonly isConditional: boolean;
     constructor(data: string, start: number, end: number, line: number, column: number, isConditional?: boolean);
@@ -161,7 +161,7 @@ export declare class CommentTokenImpl extends HTMLBaseToken implements CommentTo
 /**
  * Conditional comment token implementation
  */
-export declare class ConditionalCommentTokenImpl extends HTMLBaseToken implements ConditionalCommentToken {
+export declare class ConditionalCommentTokenImpl extends HTMLBaseToken {
     readonly condition: string;
     readonly content: string;
     constructor(condition: string, content: string, start: number, end: number, line: number, column: number);
@@ -169,7 +169,7 @@ export declare class ConditionalCommentTokenImpl extends HTMLBaseToken implement
 /**
  * DOCTYPE token implementation
  */
-export declare class DoctypeTokenImpl extends HTMLBaseToken implements DoctypeToken {
+export declare class DoctypeTokenImpl extends HTMLBaseToken {
     readonly name: string;
     readonly publicId?: string;
     readonly systemId?: string;
@@ -178,14 +178,14 @@ export declare class DoctypeTokenImpl extends HTMLBaseToken implements DoctypeTo
 /**
  * CDATA token implementation
  */
-export declare class CDATATokenImpl extends HTMLBaseToken implements CDATAToken {
+export declare class CDATATokenImpl extends HTMLBaseToken {
     readonly content: string;
     constructor(content: string, start: number, end: number, line: number, column: number);
 }
 /**
  * EOF token implementation
  */
-export declare class EOFTokenImpl extends HTMLBaseToken implements EOFToken {
+export declare class EOFTokenImpl extends HTMLBaseToken {
     constructor(start: number, end: number, line: number, column: number);
 }
 /**

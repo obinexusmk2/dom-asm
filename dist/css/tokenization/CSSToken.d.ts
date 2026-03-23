@@ -1,4 +1,5 @@
 import { TokenType } from './CSSTokenType';
+export { TokenType } from './CSSTokenType';
 /**
  * Position information for tokens
  */
