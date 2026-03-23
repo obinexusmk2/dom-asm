@@ -37,7 +37,6 @@ class HTMLBaseToken {
         this.end = end;
         this.line = line;
         this.column = column;
-        Object.freeze(this);
     }
     validateNumber(field, value) {
         if (typeof value !== 'number' || isNaN(value)) {

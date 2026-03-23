@@ -159,8 +159,6 @@ export const HTMLTokenType = {
       this.end = end;
       this.line = line;
       this.column = column;
-      
-      Object.freeze(this);
     }
     
     protected validateNumber(field: string, value: number): void {

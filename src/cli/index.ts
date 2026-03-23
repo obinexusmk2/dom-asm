@@ -1,8 +1,8 @@
 import { Command } from 'commander';
 import * as fs from 'fs';
 import * as path from 'path';
+import { DomASM } from '../DomASM';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = { version: '0.1.0' };
 
 const program = new Command();
@@ -20,7 +20,6 @@ program
   .action(async (file: string, options: { output?: string; optimize?: boolean }) => {
     try {
       const input = fs.readFileSync(path.resolve(file), 'utf-8');
-      const { DomASM } = require('../DomASM');
       const domasm = new DomASM();
 
       let ast = domasm.parse(input);
@@ -49,7 +48,6 @@ program
   .action(async (file: string, options: { output?: string }) => {
     try {
       const input = fs.readFileSync(path.resolve(file), 'utf-8');
-      const { DomASM } = require('../DomASM');
       const domasm = new DomASM();
 
       const ast = domasm.parse(input);
@@ -77,7 +75,6 @@ program
     try {
       const input1 = fs.readFileSync(path.resolve(file1), 'utf-8');
       const input2 = fs.readFileSync(path.resolve(file2), 'utf-8');
-      const { DomASM } = require('../DomASM');
       const domasm = new DomASM();
 
       const ast1 = domasm.parse(input1);
